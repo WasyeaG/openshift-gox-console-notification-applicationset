@@ -1,13 +1,13 @@
 applicationset:
-  name: gox-sbx-console-notification
+  name: gox-stg-console-notification
   namespace: openshift-gitops
 
 clusterSelector:
   matchLabels:
-    gox.li9.com/environment: sbx
+    gox.li9.com/environment: stg
 
 environment:
-  name: sbx
+  name: stg
   valueFiles:
     - values-common.yaml
-    - values-sbx.yaml
+    - values-stg.yaml

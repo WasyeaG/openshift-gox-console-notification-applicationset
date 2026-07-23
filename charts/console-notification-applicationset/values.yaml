@@ -18,7 +18,9 @@ clusterSelector:
 
 environment:
   name: sbx
-  valuesFile: values-sbx.yaml
+  valueFiles:
+    - values-common.yaml
+    - values-sbx.yaml
 
 syncPolicy:
   automated:

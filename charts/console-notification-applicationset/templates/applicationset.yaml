@@ -28,7 +28,7 @@ spec:
         helm:
           releaseName: 'console-notification-{{ "{{nameNormalized}}" }}'
           valueFiles:
-            - {{ .Values.environment.valuesFile | quote }}
+{{ toYaml .Values.environment.valueFiles | indent 12 }}
       destination:
         server: '{{ "{{server}}" }}'
         namespace: {{ .Values.destination.namespace | quote }}

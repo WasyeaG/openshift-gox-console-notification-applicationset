@@ -1,13 +1,13 @@
 applicationset:
-  name: gox-sbx-console-notification
+  name: gox-prd-console-notification
   namespace: openshift-gitops
 
 clusterSelector:
   matchLabels:
-    gox.li9.com/environment: sbx
+    gox.li9.com/environment: prd
 
 environment:
-  name: sbx
+  name: prd
   valueFiles:
     - values-common.yaml
-    - values-sbx.yaml
+    - values-prd.yaml
