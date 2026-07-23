@@ -1,0 +1,6 @@
+apiVersion: v2
+name: console-notification-applicationset
+description: Helm chart for deploying an Argo CD ApplicationSet for ConsoleNotification
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

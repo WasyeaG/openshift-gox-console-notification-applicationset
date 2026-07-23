@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ include "console-notification-applicationset.name" . }}
+  namespace: {{ .Values.applicationset.namespace }}
+  labels:
+    app.kubernetes.io/name: console-notification-applicationset
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+{{ toYaml .Values.clusterSelector.matchLabels | indent 12 }}
+  template:
+    metadata:
+      name: 'console-notification-{{ "{{nameNormalized}}" }}'
+      labels:
+        app.kubernetes.io/name: console-notification
+        gox.li9.com/environment: {{ .Values.environment.name | quote }}
+    spec:
+      project: {{ .Values.project }}
+      source:
+        repoURL: {{ .Values.source.repoURL | quote }}
+        targetRevision: {{ .Values.source.targetRevision | quote }}
+        path: {{ .Values.source.path | quote }}
+        helm:
+          releaseName: 'console-notification-{{ "{{nameNormalized}}" }}'
+          valueFiles:
+            - {{ .Values.environment.valuesFile | quote }}
+      destination:
+        server: '{{ "{{server}}" }}'
+        namespace: {{ .Values.destination.namespace | quote }}
+      syncPolicy:
+{{ toYaml .Values.syncPolicy | indent 8 }}

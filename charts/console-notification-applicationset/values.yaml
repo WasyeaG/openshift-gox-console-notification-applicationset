@@ -1,0 +1,28 @@
+applicationset:
+  name: console-notification
+  namespace: openshift-gitops
+
+project: default
+
+source:
+  repoURL: https://github.com/WasyeaG/openshift-gox-console-notification.git
+  targetRevision: main
+  path: charts/console-notification
+
+destination:
+  namespace: gox-console-notification
+
+clusterSelector:
+  matchLabels:
+    gox.li9.com/environment: sbx
+
+environment:
+  name: sbx
+  valuesFile: values-sbx.yaml
+
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
