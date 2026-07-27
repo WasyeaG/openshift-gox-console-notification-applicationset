@@ -3,7 +3,7 @@ applicationset:
   namespace: openshift-gitops
 
 source:
-  targetRevision: sbx
+  targetRevision: v0.1.0-sbx
 
 clusterSelector:
   matchLabels:
