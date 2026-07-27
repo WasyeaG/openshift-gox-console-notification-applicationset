@@ -2,6 +2,9 @@ applicationset:
   name: gox-stg-console-notification
   namespace: openshift-gitops
 
+source:
+  targetRevision: stg
+
 clusterSelector:
   matchLabels:
     gox.li9.com/environment: stg

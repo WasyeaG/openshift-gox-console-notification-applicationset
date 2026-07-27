@@ -2,6 +2,9 @@ applicationset:
   name: gox-sbx-console-notification
   namespace: openshift-gitops
 
+source:
+  targetRevision: sbx
+
 clusterSelector:
   matchLabels:
     gox.li9.com/environment: sbx

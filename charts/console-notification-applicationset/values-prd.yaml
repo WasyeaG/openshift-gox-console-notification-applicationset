@@ -2,6 +2,9 @@ applicationset:
   name: gox-prd-console-notification
   namespace: openshift-gitops
 
+source:
+  targetRevision: main
+
 clusterSelector:
   matchLabels:
     gox.li9.com/environment: prd
